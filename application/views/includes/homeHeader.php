@@ -80,7 +80,7 @@
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="<?php echo base_url();?>cooperative">Cooperative</a>
-						<a class="dropdown-item"  href="<?php echo base_url();?>#">Consultator</a>
+						<a class="dropdown-item"  href="<?php echo base_url();?>consultator">Consultator</a>
 						<!-- <a class="dropdown-item"  href="<?php echo base_url();?>College">College</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="<?php echo base_url();?>rp">Rwanda Polytechnic</a> -->

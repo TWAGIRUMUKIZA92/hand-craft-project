@@ -4,7 +4,7 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-	<title>Cooperative Login</title>
+	<title>Consultator Login</title>
 	<meta content="Admin Dashboard" name="description" />
 	<meta content="ThemeDesign" name="author" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -32,13 +32,13 @@
 							<div class="card-body">
 
 								<h3 class="text-center mt-0 m-b-15">
-									<a href="<?= base_url();?>cooperative/login" class="logo logo-admin"><img src="<?php echo base_url(); ?>assets/images/logo-dark.png" height="30" alt="logo"></a>
+									<a href="<?= base_url();?>comsultator/login" class="logo logo-admin"><img src="<?php echo base_url(); ?>assets/images/logo-dark.png" height="30" alt="logo"></a>
 								</h3>
 								<h4 class="text-muted text-center font-18"><b><?=$page;?></b></h4>
 								<h5 class="text-muted text-center font-18"><b><?php echo @$error; ?></b></h5>
 
 								<div class="p-2">
-									<form class="form-horizontal m-t-20"  action="<?php echo base_url();?>cooperative/login" method="post" enctype="multipart/form-data">
+									<form class="form-horizontal m-t-20"  action="<?php echo base_url();?>consultator/login" method="post" enctype="multipart/form-data">
 
 										<div class="form-group row">
 											<div class="col-12">
@@ -74,11 +74,11 @@
 
 										<div class="form-group m-t-10 mb-0 row">
 											<div class="col-sm-7 m-t-20">
-												<a href="<?=base_url()?>cooperative/reset" class="text-muted"><i class="mdi mdi-lock"></i> Forgot your password?</a>
+												<a href="<?=base_url()?>consultator/reset" class="text-muted"><i class="mdi mdi-lock"></i> Forgot your password?</a>
 											</div>
-											<div class="col-sm-5 m-t-20">
+											<!-- <div class="col-sm-5 m-t-20">
 												<a href="<?=base_url()?>cooperative/new_account" class="text-muted"><i class="mdi mdi-account-circle"></i> Create an account</a>
-											</div>
+											</div> -->
 										</div>
 									</form>
 								</div>

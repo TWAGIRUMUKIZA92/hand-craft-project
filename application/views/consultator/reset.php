@@ -31,14 +31,14 @@
                                     <div class="card-body">
                 
                                         <h3 class="text-center mt-0 m-b-15">
-                                            <a href="<?= base_url();?>cooperative/login" class="logo logo-admin"><img src="<?php echo base_url();?>assets/images/logo-dark.png" height="30" alt="logo"></a>
+                                            <a href="<?= base_url();?>consultator/login" class="logo logo-admin"><img src="<?php echo base_url();?>assets/images/logo-dark.png" height="30" alt="logo"></a>
                                         </h3>
                 
                                         <h4 class="text-muted text-center font-18"><b><?=$page;?></b></h4>
                                         <h3 class="text-muted text-center font-18"><?php echo @$error; ?></h3>
                 
                                         <div class="p-2">
-                                            <form class="form-horizontal m-t-20" action="<?=base_url()?>cooperative/reset" method="post">
+                                            <form class="form-horizontal m-t-20" action="<?=base_url()?>consultator/reset" method="post">
                 
                                                 <div class="form-group row">
                                                     <div class="col-12">
@@ -69,7 +69,7 @@
                 
                                                 <div class="form-group m-t-10 mb-0 row">
                                                     <div class="col-sm-7 m-t-20">
-                                                        <a href="<?=base_url()?>cooperative" class="text-muted"><i class="mdi mdi-lock"></i> Arleady have account</a>
+                                                        <a href="<?=base_url()?>consultator" class="text-muted"><i class="mdi mdi-lock"></i> Arleady have account</a>
                                                     </div>
                                                 </div>
                                             </form>

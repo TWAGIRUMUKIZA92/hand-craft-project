@@ -3,7 +3,7 @@
                                     <div class="card m-b-30">
                                         <div class="card-body">
             
-                                            <h4 class="mt-0 header-title">Sells Artisan</h4>
+                                            <!-- <h4 class="mt-0 header-title">Craft List</h4> -->
                                             <p class="text-muted m-b-30 font-14">
                                             </p>
             
@@ -15,8 +15,8 @@
                                                     <th>Quantity</th>
                                                     <th>Price</th>
                                                     <th>Subtotal</th>
-                                                    <th>Date</th>
-                                                    <th>Action</th>
+                                                    <th>Registered Date</th>
+                                                    <!-- <th>Action</th> -->
                                                 </tr>
                                                 </thead>
             
@@ -36,7 +36,7 @@
 
                                                     <td><?=$row->subtotal;?></td>
                                                     <td><?=$row->registered_date;?></td>
-                                                    <td><a href="<?php echo base_url(); ?>Cooperative/updateCraft/<?=$row->crft_id;?>"><i class="mdi mdi-table-edit text-success"></i>Edit</a>/<a href="<?php echo base_url(); ?>Cooperative/craft_list/<?=$row->crft_id;?>"><i class="mdi mdi-delete text-danger"></i>Delete</a></td>
+                                                    <!-- <td><a href="<?php echo base_url(); ?>Cooperative/updateCraft/<?=$row->crft_id;?>"><i class="mdi mdi-table-edit text-success"></i>Edit</a>/<a href="<?php echo base_url(); ?>Cooperative/craft_list/<?=$row->crft_id;?>"><i class="mdi mdi-delete text-danger"></i>Delete</a></td> -->
                                                 </tr>
                                                 <?php
                                     }

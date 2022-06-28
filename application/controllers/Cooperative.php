@@ -64,12 +64,42 @@ class Cooperative extends CI_Controller
 		$ses=$this->session->userdata('msg');
 		if($ses!="") {
 			$data['page'] = ucfirst($page);
+			$data['dataif']=$this->CooperativeModel->get_sum_count_craft();
+			$data['deleteif']=$this->CooperativeModel->get_delete_count_craft();
 			$this->load->view('includes/header', $data);
-			$this->load->view('cooperative/ino_dashboard');
+			$this->load->view('cooperative/ino_dashboard',$data);
 			$this->load->view('includes/footer');
 		}else {
 			redirect('cooperative/login');
 		}
+	}
+	public function new_account($page="Cooperative|New Account"){
+		$data['page']=$page;
+		$this->load->view('cooperative/new_account',$data);
+		if ($this->input->post('new_account')){
+			$config['upload_path']          = './assets/uploads/licence/';
+				$config['allowed_types']        = 'pdf';
+				$config['max_size']             = 0;
+	
+				$this->load->library('upload', $config);
+	
+				if ( ! $this->upload->do_upload('coop_licence'))
+				{
+					redirect("Cooperative/new_account");
+				}
+				else
+				{
+					$datav = $this->upload->data();
+					$email = $this->input->post("coop_email");
+					$coop_name = $this->input->post("coop_name");
+					$tel=$this->input->post("coop_tel");
+					$password = $this->input->post("coop_pass");                
+					$file = "assets/uploads/licence/".$datav['file_name'];
+					$this->CooperativeModel->save_account($email, $coop_name, $licence,$password,$tel);
+		
+					redirect("Cooperative/index");
+				}
+			}
 	}
 
 	public function help($page = 'Artisan Lists'){
@@ -272,10 +302,15 @@ class Cooperative extends CI_Controller
 		$ses=$this->session->userdata('msg');
 		if($ses!="") {
 		$data['page'] = ucfirst($page);
-		$data1["data"]=$this->CooperativeModel->selectCraft($ses);
+		// $data1["data"]=$this->CooperativeModel->selectCoopCraft($crft_id);
+		$data["data"]=$this->CooperativeModel->selectCraft($ses);
 		$this->load->view('includes/header',$data);
-		$this->load->view('includes/craft_coop_list',$data1);
+		$this->load->view('includes/craft_coop_list',$data);
 		$this->load->view('includes/footer');
+		// $row = $results->row();
+		// $status;
+        // $this->CooperativeModel->deleteCraft($crft_id,$status);
+		// redirect('Cooperative/craft_list');
 		}
 		else {
 			redirect('cooperative/login');
@@ -301,12 +336,11 @@ class Cooperative extends CI_Controller
 			redirect('cooperative/login');
 		}
 	}
-
 	public function logout(){
 		$this->session->unset_userdata('msg');
 		redirect('home');
 	}
-	public function reset($page='Cooperative| Reset')
+	public function reset($page='Cooperative| Reset Password')
     {
         $data['page']=$page;
         $data['error']="";

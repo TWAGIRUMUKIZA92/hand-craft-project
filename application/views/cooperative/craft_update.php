@@ -39,7 +39,7 @@
                                                 </div>
                                                 <div class="form-group row has-warning">
                                                     <div class="col-sm-12">
-                                                        <textarea name="crft_desc" id="myTextarea" value="<?=$row->crft_desc;?>"></textarea>
+                                                        <textarea name="crft_desc" id="myTextarea" placeholder="<?=$row->crft_desc;?>"></textarea>
                                                     </div>
                                                 </div>
                                                 <?php

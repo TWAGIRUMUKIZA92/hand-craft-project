@@ -13,18 +13,18 @@
         return document.querySelector(selector);
     }
 
-    function reset (ev) {
+    function reset(ev) {
         ev.preventDefault();
         alertify.reset();
     }
 
     function logDemo(selector) {
-        (ga || function() { })("send", "event", "button", "click", "demo", selector);
+        (ga || function() {})("send", "event", "button", "click", "demo", selector);
     }
 
     function demo(selector, cb) {
         var el = $(selector);
-        if(el) {
+        if (el) {
             el.addEventListener("click", function(ev) {
                 ev.preventDefault();
                 logDemo(selector);
@@ -37,13 +37,13 @@
 
     // ==============================
     // Standard Dialogs
-    demo("#alertify-alert", function (ev) {
+    demo("#alertify-alert", function(ev) {
         alertify.alert("This is an alert dialog");
         return false;
     });
 
-    demo("#alertify-confirm", function (ev) {
-        alertify.confirm("This is a confirm dialog", function (ev) {
+    demo("#alertify-confirm", function(ev) {
+        alertify.confirm("This is a confirm dialog", function(ev) {
             ev.preventDefault();
             alertify.success("You've clicked OK");
         }, function(ev) {
@@ -52,13 +52,13 @@
         });
     });
 
-    demo("#alertify-click-to-close", function (ev) {
+    demo("#alertify-click-to-close", function(ev) {
         alertify
             .closeLogOnClick(true)
             .log("Click me to close!");
     });
 
-    demo("#alertify-disable-click-to-close", function (ev) {
+    demo("#alertify-disable-click-to-close", function(ev) {
         alertify
             .closeLogOnClick(true)
             .log("Click me to close!")
@@ -66,20 +66,20 @@
             .log("You can't click to close this!");
     });
 
-    demo("#alertify-reset", function (ev) {
+    demo("#alertify-reset", function(ev) {
         alertify
             .okBtn("Go For It!")
             .reset(ev)
             .alert("Custom values were reset");
     });
 
-    demo("#alertify-log-template", function (ev) {
+    demo("#alertify-log-template", function(ev) {
         alertify
-            .setLogTemplate(function (input) { return 'log message: ' + input; })
+            .setLogTemplate(function(input) { return 'log message: ' + input; })
             .log("This is the message");
     });
 
-    demo("#alertify-max-log-items", function (ev) {
+    demo("#alertify-max-log-items", function(ev) {
         alertify
             .maxLogItems(1)
             .log("This is the first message");
@@ -90,10 +90,10 @@
         }, 1000);
     });
 
-    demo("#alertify-prompt", function (ev) {
+    demo("#alertify-prompt", function(ev) {
         alertify
             .defaultValue("Default value")
-            .prompt("This is a prompt dialog", function (str, ev) {
+            .prompt("This is a prompt dialog", function(str, ev) {
                 ev.preventDefault();
                 alertify.success("You've clicked OK and typed: " + str);
             }, function(ev) {
@@ -104,7 +104,7 @@
 
     // ==============================
     // Ajax
-    demo("#alertify-ajax", function (ev) {
+    demo("#alertify-ajax", function(ev) {
         alertify.confirm("Confirm?", function(ev) {
             ev.preventDefault();
             alertify.alert("Successful AJAX after OK");
@@ -116,13 +116,13 @@
 
     // ==============================
     // Promise Aware
-    demo("#alertify-promise", function (ev) {
+    demo("#alertify-promise", function(ev) {
         if ("function" !== typeof Promise) {
             alertify.alert("Your browser doesn't support promises");
             return;
         }
 
-        alertify.confirm("Confirm?").then(function (resolvedValue) {
+        alertify.confirm("Confirm?").then(function(resolvedValue) {
             // The click event is in the
             // event variable, so you can use
             // it here.
@@ -133,11 +133,11 @@
 
     // ==============================
     // Standard Dialogs
-    demo("#alertify-notification", function (ev) {
+    demo("#alertify-notification", function(ev) {
         alertify.log("Standard log message");
     });
 
-    demo("#alertify-notification-html", function (ev) {
+    demo("#alertify-notification-html", function(ev) {
         alertify.log("<img src='https://placehold.it/256x128'><h3 class='font-18'>This is HTML</h3>");
     });
 
@@ -148,7 +148,7 @@
         });
     });
 
-    demo("#alertify-success", function (ev) {
+    demo("#alertify-success", function(ev) {
         alertify.success("Success log message");
     });
 
@@ -158,7 +158,7 @@
         });
     });
 
-    demo("#alertify-error", function (ev) {
+    demo("#alertify-error", function(ev) {
         alertify.error("Error log message");
     });
 
@@ -171,28 +171,28 @@
 
     // ==============================
     // Custom Properties
-    demo("#alertify-delay", function (ev) {
+    demo("#alertify-delay", function(ev) {
         alertify
             .delay(10000)
             .log("Hiding in 10 seconds");
     });
 
-    demo("#alertify-forever", function (ev) {
+    demo("#alertify-forever", function(ev) {
         alertify
             .delay(0)
             .log("Will stay until clicked");
     });
 
-    demo("#alertify-labels", function (ev) {
+    demo("#alertify-labels", function(ev) {
         alertify
             .okBtn("Accept")
-            .cancelBtn("Deny")
-            .confirm("Confirm dialog with custom button labels", function (ev) {
+            .cancelBtn("Reject")
+            .confirm("Confirm dialog with Accept request", function(ev) {
                 ev.preventDefault();
-                alertify.success("You've clicked OK");
+                alertify.success("You've accepted Request");
             }, function(ev) {
                 ev.preventDefault();
-                alertify.error("You've clicked Cancel");
+                alertify.error("You've rejected request");
             });
     });
 
